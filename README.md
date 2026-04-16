@@ -8,9 +8,9 @@ Data is collected from external sources (like HTTP APIs) using Azure Data Factor
 
 **Raw Data Storage (Bronze Layer):**
 The ingested data is stored in its original form in Azure Data Lake Storage Gen2, ensuring scalability and cost efficiency.
-    1.  A dynamic pipeline was created  in Azure Data Factory which uses Lookup, For each with Copy data to copy all the required files from Git to Bronze storage container.
-    2.  Two Linked services were created one to connect to the Git URL and the other one to connect to ADLS Gen 2.
-    3. A json file with all the list of the folders and files in Git was created and read via the Loop activity andf the output of the activity is fed to the foreach to perform the copy activity for each and every folder. The result is stored in Bronze.
+        1. A dynamic pipeline was created  in Azure Data Factory which uses Lookup, For each with Copy data to copy all the required files from Git to Bronze storage container.
+        2. Two Linked services were created one to connect to the Git URL and the other one to connect to ADLS Gen 2.
+        3. A json file with all the list of the folders and files in Git was created and read via the Loop activity andf the output of the activity is fed to the foreach to perform the copy activity for each and every folder. The result is stored in Bronze.
 
 **Data Transformation (Silver Layer):**
 Azure Databricks processes and transforms raw data into a cleaner, structured format. This step includes data cleansing, enrichment, and business logic application.
